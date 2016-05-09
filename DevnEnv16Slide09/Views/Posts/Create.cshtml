@@ -1,41 +1,17 @@
-﻿
+﻿@model DevnEnv16Slide09.Models.Post
 @{
-    Layout = null;
-    string message;
-    if(IsPost)
-    {
-        message = "button clicked";
-        int count = (int)Session["counter"];
-        count++;
-        Session["counter"] = count;
-    }
-    else
-    {
-        message = "not clicked";
-        Session["counter"] = 0;
-    }
+ 
+   
 }
 
-<!DOCTYPE html>
+   @Html.ValidationSummary()
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
-<body>
-    <div> 
-        <h1>Create</h1>
-        <a href="/Posts/About">About</a>
-        @Html.ActionLink("Go to About Page", "about")
-        @Html.ActionLink("Post 11", "details", new { id = 11})
-        <a href="/Post/11">Index</a>
-        @Html.Action("TestAction")
-    </div>
-    <h1>@message</h1>
-    <h2>@Session["counter"]</h2>
-    <form action="" method="post">
-        <input type="submit" name="name" value="Add" />
-    </form>
-</body>
-</html>
+@using (Html.BeginForm())
+{
+  //  <input type="text" name="title" placeholder="Title"/>
+    @Html.EditorFor(m => m.Title)
+    @Html.ValidationMessageFor(m => m.Title)
+  //  <input type="text" name="body" placeholder="Body" />
+    @Html.EditorFor(m => m.Body)
+    <input type="submit" value="Create"/>
+}

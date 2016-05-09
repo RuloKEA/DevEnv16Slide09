@@ -1,0 +1,16 @@
+﻿@model DevnEnv16Slide09.Models.Post
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.PostId)
+    @Html.EditorFor(m => m.Title)
+    @Html.ValidationMessageFor(m => m.Title)
+    @Html.EditorFor(m => m.Body)
+    @Html.ValidationMessageFor(m => m.Body)
+    <input type="submit" value="edit"/>
+}

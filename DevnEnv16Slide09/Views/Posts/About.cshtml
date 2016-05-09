@@ -4,4 +4,26 @@
 }
 
 <h2>About</h2>
+@using (Html.BeginForm())
+{
+   <input type = "text" name = "username" placeholder="username"/> <br />
+   <input type = "text" name = "password" placeholder="password"/> <br />
 
+      <input type = "submit" value = "Login" >
+
+       
+}
+<button id="btn">Click</button>
+@Html.Action("Junk")
+
+@section Scripts
+{
+
+<script>
+    $("#btn").click(function () {
+        alert("hello");
+    })
+</script>
+
+
+    }

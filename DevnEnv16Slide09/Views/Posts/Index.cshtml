@@ -1,20 +1,18 @@
-﻿
+﻿@model IEnumerable<DevnEnv16Slide09.Models.Post>
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
         <h1>Index</h1>
-        <a href="/Posts/About">About</a>
-        <a href="/Posts/Create">Create</a>
-    </div>
-</body>
-</html>
+@foreach (var post in Model)
+{
+    <div> @post.PostId |
+        @post.Title @Html.ActionLink("go to post"+post.PostId, "details", new { id = post.PostId}) |
+    @Html.ActionLink("delete", "delete", new { id = post.PostId })|
+        @Html.ActionLink("edit", "edit", new { id = post.PostId })
+     </div>
+   
+       
+}
+
+@Html.Partial("_Junk")
