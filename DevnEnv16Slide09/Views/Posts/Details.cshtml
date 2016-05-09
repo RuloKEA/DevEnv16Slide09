@@ -1,13 +1,39 @@
 ﻿@model DevnEnv16Slide09.Models.Post
 
+@{
+    Layout = null;
+    int i = 22;
+    int b = 3;
+    int[] myInts = { 2, 3, 4, 5 };
 
+    string postclick = "";
+    if(IsPost)
+    {
+        postclick = "clicked";
+    }
+}
 
 @Html.DisplayNameFor(model => model.PostId) -
 @Html.DisplayFor(model => model.PostId) |
 
-@Html.DisplayNameFor(model => model.Title) -
-@Html.DisplayFor(model => model.Title) |
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div> 
+        <h1>Post @ViewBag.id</h1>
+        @i
+        @foreach (var item in myInts)
+        {
+            @item
+        }
 
-
-@Html.DisplayNameFor(model => model.Body) -
-@Html.DisplayFor(model => model.Body) |
+        <form action="" method="post">
+            <input type="submit" name="name" value="Add" />
+        </form>
+        @postclick
+    </div>
+</body>
+</html>
